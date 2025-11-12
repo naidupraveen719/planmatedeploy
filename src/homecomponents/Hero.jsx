@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, {useContext } from 'react';
 import styled from "styled-components";
 
@@ -6,7 +7,7 @@ import {store} from '../App';
 import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
-  
+  const [token,setToken] = useContext(store);
   const navigate = useNavigate();
   return (
     <Section>
