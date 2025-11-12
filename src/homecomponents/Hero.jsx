@@ -1,12 +1,12 @@
-import React, { useState,useContext } from 'react';
+import React, {useContext } from 'react';
 import styled from "styled-components";
-import HeroImage from "../assets/hero.jpg";
+
 import IndiaMap from "../assets/indiamap.jpg";
 import {store} from '../App';
 import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
-  const [token,setToken] = useContext(store);
+  
   const navigate = useNavigate();
   return (
     <Section>
