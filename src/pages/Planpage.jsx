@@ -90,7 +90,7 @@ const PlanPage = () => {
     console.log(formData);
     try {
       // The 'formData' object is the request body
-      const response = await axios.post('http://localhost:5000/planpage/api/plan-trip',formData,{
+      const response = await axios.post('https://backend-nodejs-planmate.onrender.com/planpage/api/plan-trip',formData,{
             headers: {
                 'x-token' : token
             }

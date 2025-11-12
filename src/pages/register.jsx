@@ -17,7 +17,7 @@ const Register = () => {
     }
     const submitHandler = e =>{
         e.preventDefault();
-        axios.post('http://localhost:5000/users/register',data).then(
+        axios.post('https://backend-nodejs-planmate.onrender.com/users/register',data).then(
             res => {alert(res.data);setData({
                 username:'',
                 email:'',

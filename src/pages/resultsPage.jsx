@@ -34,7 +34,7 @@ const ResultsPage = () => {
     const fetchPlan = async () => {
       try {
         const config = { headers: { 'x-token': token } };
-        const response = await axios.get(`http://localhost:5000/results/api/plans/${id}`, config);
+        const response = await axios.get(`https://backend-nodejs-planmate.onrender.com/results/api/plans/${id}`, config);
         setPlanData(response.data);
       } catch (err) {
         setError('Failed to load trip plan.');

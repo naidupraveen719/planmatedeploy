@@ -28,7 +28,7 @@ const Login = () => {
         setError('');
 
         try {
-            const response = await axios.post('http://localhost:5000/loging/login', data);
+            const response = await axios.post('https://backend-nodejs-planmate.onrender.com/loging/login', data);
             
             const receivedToken = response.data.token;
             localStorage.setItem('authToken', receivedToken);
