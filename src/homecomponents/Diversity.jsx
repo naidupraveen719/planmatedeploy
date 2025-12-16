@@ -21,17 +21,21 @@ const CircleContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  top: 10rem;
 
   /* Tablet */
   @media (max-width: 1024px) {
+
     width: 350px;
     height: 350px;
+    top: 10rem;
   }
 
   /* Mobile */
   @media (max-width: 600px) {
     width: 270px;
     height: 270px;
+    top: 10rem;
   }
 `;
 
@@ -60,6 +64,7 @@ const CircleItem = styled.img`
   @media (max-width: 600px) {
     width: 110px;
     height: 110px;
+    top: 20px;
     transform-origin: 0 -220px;
     transform: rotate(calc(var(--i) * 36deg)) translateY(-190px)
       rotate(calc(var(--i) * -36deg));
@@ -82,6 +87,7 @@ const CenterContent = styled.div`
 
   /* Mobile */
   @media (max-width: 600px) {
+   top : 20px;
     width: 160px;
   }
 `;
@@ -119,7 +125,7 @@ const Paragraph = styled.p`
 
 const CircleLayout = () => {
   return (
-    <CircleContainer>
+    <CircleContainer id="diversity">
       <CircleItem src={img1} style={{ "--i": 0 }} alt="img1" />
       <CircleItem src={img2} style={{ "--i": 1 }} alt="img2" />
       <CircleItem src={img3} style={{ "--i": 2 }} alt="img3" />

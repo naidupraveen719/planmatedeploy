@@ -51,6 +51,8 @@ const Section = styled.section`
   margin: 25rem 0;
   display: flex;
   gap: 5rem;
+  position : relative;
+  top: 15rem;
   .image {
     img {
       height: 35rem;

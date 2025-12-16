@@ -59,7 +59,7 @@ const Section = styled.section`
       justify-content: center;
       align-items: center;
       gap: 1rem;
-      margin-bottom: 15rem;
+      margin-bottom: 2rem;
       h3 {
         color: var(--primary-text);
       }
@@ -83,4 +83,16 @@ const Section = styled.section`
       grid-template-columns: 1fr;
     }
   }
+   @media (max-width: 768px) {
+  .services {
+    position: static;
+    top: 0;
+  }
+
+  .service {
+    padding: 0.5rem 1rem;
+    margin-bottom: 1.5rem; /* correct spacing */
+  }
+}
+
 `;

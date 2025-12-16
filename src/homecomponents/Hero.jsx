@@ -10,7 +10,7 @@ export default function Home() {
   const [token,setToken] = useContext(store);
   const navigate = useNavigate();
   return (
-    <Section>
+    <Section id="home">
      
 
       {/* Map + Text */}
@@ -114,6 +114,11 @@ const Section = styled.section`
 
   /* Responsive styles */
   @media (max-width: 768px) {
+
+   .content-section {
+   position : relative;
+    top: 10rem;
+  }
     .firstimage {
       height: 35vh;
     }

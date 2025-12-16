@@ -4,9 +4,11 @@ import styled from "styled-components";
 import { BsPerson } from "react-icons/bs";
 import Logo from "../assets/logo1.jpg";
 import { store } from '../App';
+import { useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
   const [token, setToken] = useContext(store);
+  const navigate = useNavigate();
   return (
     <Container >
       <div className="brand">
@@ -17,16 +19,16 @@ export default function Navbar() {
       <div className={`links show`}>
         <ul>
           <li>
-            <a href="#services">Home</a>
+            <a href="#home">Home</a>
           </li>
           <li>
-            <a href="#destination"> Destination</a>
+            <a href="#services"> Services</a>
+          </li>
+          <li>
+            <a href="#diversity">Diversity</a>
           </li>
           <li>
             <a href="#offer">Offer</a>
-          </li>
-          <li>
-            <a href="#tour">Tour</a>
           </li>
           <li>
             <a href="#blog">Blog</a>
@@ -38,7 +40,15 @@ export default function Navbar() {
           <span>
             <BsPerson />
           </span>
-          <span onClick={()=>setToken(null)}>LOGOUT</span>
+          {
+        token ? (
+    <span onClick={() => setToken(null)}>LOGOUT</span> 
+  ) : (
+
+    <span onClick={() => navigate('/login')}>LOGIN</span>
+  )
+}
+          
         </div>
        
       </div>

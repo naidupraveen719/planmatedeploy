@@ -38,6 +38,8 @@ export default function Testimonial() {
 
 const Section = styled.section`
   margin-top: -20rem;
+  position: relative;
+  top: 15rem;
   .title {
     display: flex;
     justify-content: center;

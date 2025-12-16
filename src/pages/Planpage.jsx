@@ -131,7 +131,7 @@ const PlanPage = () => {
         <form className="form-grid" onSubmit={handleSubmit}>
             <div className="card">
                 <div className="card-header"> <FaUser /> <h3>Your Name</h3> </div>
-                <input required className="input-field" type="text" name="name" placeholder="e.g., Priya Sharma" value={formData.name} onChange={handleInputChange} />
+                <input required className="input-field" type="text" name="name" placeholder="e.g., Praveen naidu" value={formData.name} onChange={handleInputChange} />
             </div>
             
             <div className={`card ${isDatePickerOpen ? 'datepicker-active' : ''}`}>
