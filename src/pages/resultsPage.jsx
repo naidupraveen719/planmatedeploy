@@ -57,7 +57,7 @@ const ResultsPage = () => {
         dayWisePlan: planData.dayWisePlan
       };
 
-      const response = await axios.post('http://localhost:5000/results/api/itineraries', body, config);
+      const response = await axios.post('https://backend-nodejs-planmate.onrender.com/results/api/itineraries', body, config);
       
       alert(response.data.message); // "Itinerary saved successfully!"
       // Optionally, you can redirect the user to a "My Trips" dashboard page
