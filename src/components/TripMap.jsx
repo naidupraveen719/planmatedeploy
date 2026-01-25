@@ -6,7 +6,8 @@ const TripMap = ({ places }) => {
     return <div>No places to display on map.</div>;
   }
   const indiaCenter = [20.5937, 78.9629];
-  const routeCoordinates = places.map(place => [place.latitude, place.longitude]);
+  const routeCoordinates = places.map(place => [Number(place.latitude),
+  Number(place.longitude)]);
 
   return (
     <div style={{ borderRadius: '15px', overflow: 'hidden', boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.1)' }}>
@@ -16,7 +17,7 @@ const TripMap = ({ places }) => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
         {places.map((place, index) => (
-          <Marker key={index} position={[place.latitude, place.longitude]}>
+          <Marker key={index} position={[Number(place.latitude), Number(place.longitude)]}>
             <Popup>
               <b>{place.place}</b><br />
               {index === 0 ? "Starting Point" : `Stop ${index}`}
