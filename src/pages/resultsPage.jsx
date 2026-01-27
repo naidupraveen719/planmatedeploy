@@ -4,6 +4,9 @@ import axios from 'axios';
 import { store } from '../App';
 import TripMap from '../components/TripMap';
 import styled from 'styled-components';
+import jsPDF from "jspdf";
+import "jspdf-autotable";
+
 
 // Helper function to format time for display
 const formatTime = (timeString) => {
@@ -15,6 +18,45 @@ const formatTime = (timeString) => {
     if (minutesMatch) result += `${minutesMatch[1]} min`;
     return result.trim() || "N/A";
 };
+
+
+const handleDownloadPDF = () => {
+  const doc = new jsPDF();
+
+  doc.setFontSize(18);
+  doc.text("Trip Itinerary", 14, 20);
+
+  doc.setFontSize(12);
+  doc.text(`Starting From: ${originalPlan.startAddress}`, 14, 30);
+  doc.text(`Days: ${originalPlan.days}`, 14, 38);
+  doc.text(`Passengers: ${originalPlan.passengers}`, 14, 46);
+  doc.text(`Estimated Cost: ₹${originalPlan.totalCost}`, 14, 54);
+
+  let y = 65;
+
+  dayWisePlan.forEach((day) => {
+    doc.setFontSize(14);
+    doc.text(`Day ${day.day}`, 14, y);
+    y += 6;
+
+    const tableData = day.places.map((p, i) => [
+      i + 1,
+      p.place,
+      formatTime(p.expected_time_to_visit),
+    ]);
+
+    doc.autoTable({
+      startY: y,
+      head: [["#", "Place", "Visit Time"]],
+      body: tableData,
+    });
+
+    y = doc.lastAutoTable.finalY + 10;
+  });
+
+  doc.save("Trip-Itinerary.pdf");
+};
+
 
 const ResultsPage = () => {
   const { id } = useParams();
@@ -113,6 +155,11 @@ const ResultsPage = () => {
            <SaveButton onClick={handleSaveItinerary} disabled={isSaving}>
              {isSaving ? 'Saving...' : 'Confirm & Save Final Itinerary'}
            </SaveButton>
+
+           <SaveButton onClick={handleDownloadPDF}>
+  📄 Download Itinerary PDF
+</SaveButton>
+
         </ItineraryColumn>
         
         <MapColumn>
