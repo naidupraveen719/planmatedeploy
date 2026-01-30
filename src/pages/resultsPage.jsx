@@ -5,7 +5,7 @@ import { store } from '../App';
 import TripMap from '../components/TripMap';
 import styled from 'styled-components';
 import jsPDF from "jspdf";
-import "jspdf-autotable";
+import autoTable from "jspdf-autotable";
 
 
 // Helper function to format time for display
@@ -103,13 +103,13 @@ const ResultsPage = () => {
     doc.text(`Day ${day.day}`, 14, y);
     y += 6;
 
-    const tableData = day.places.map((p, i) => [
+    const tableData = (day.places || []).map((p, i) => [
       i + 1,
       p.place,
       formatTime(p.expected_time_to_visit),
     ]);
 
-    doc.autoTable({
+    autoTable(doc, {
       startY: y,
       head: [["#", "Place", "Visit Time"]],
       body: tableData,
@@ -120,7 +120,6 @@ const ResultsPage = () => {
 
   doc.save("Trip-Itinerary.pdf");
 };
-
   return (
     <PageWrapper>
       <Header>
