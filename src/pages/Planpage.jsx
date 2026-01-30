@@ -173,7 +173,7 @@ const PlanPage = () => {
 
              <div className="card">
                 <div className="card-header"> <FaMapMarkerAlt /> <h3>Starting Address</h3> </div>
-                <input required className="input-field" type="text" name="startAddress" value={formData.startAddress} onChange={handleInputChange} />
+                <input required className="input-field" type="text" name="startAddress" placeholder="e.g., Vishakapatnam" value={formData.startAddress} onChange={handleInputChange} />
             </div>
 
              <div className="card full-width-card">

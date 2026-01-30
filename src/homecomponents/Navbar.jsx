@@ -33,6 +33,12 @@ export default function Navbar() {
           <li>
             <a href="#blog">Blog</a>
           </li>
+          <li>
+            <a href="../pages/Planpage">Plan</a>
+          </li>
+          <li>
+            <a href="../pages/resultsPage">Results</a>
+          </li>
         </ul>
       </div>
       <div className="account-info">
